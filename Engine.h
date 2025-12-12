@@ -17,6 +17,9 @@ private:
 
 	Music m_Music;
 
+	Texture m_BackgroundTexture;
+	Sprite m_BackgroundSprite;
+
 	// Private functions for internal use only
 	void input();
 	void update(float dtAsSeconds);

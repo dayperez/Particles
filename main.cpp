@@ -2,8 +2,7 @@
 
 int main()
 {
-	srand(std::time(0));
-	
+
 	// Declare an instance of Engine
 	Engine engine;
 	// Start the engine

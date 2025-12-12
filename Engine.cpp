@@ -9,12 +9,28 @@ Engine::Engine(){
 
     if(!m_Music.openFromFile("1979.ogg")){
 
-        cerr << "Error: Could not file '1979.mp3";
+        cerr << "Error: Could not file '1979.ogg";
     }
     else {
 
         m_Music.setLoop(true);
         m_Music.play();
+    }
+
+    if(!m_BackgroundTexture.loadFromFile("Galaxy.png")){
+        cerr << "Error: Could not load background image 'Galaxy.png'";
+    }
+    else{
+
+        m_BackgroundSprite.setTexture(m_BackgroundTexture);
+
+        Vector2u windowSize = m_Window.getSize();
+        Vector2u textureSize = m_BackgroundTexture.getSize();
+
+        float xScale = (float)windowSize.x / textureSize.x;
+        float yScale = (float)windowSize.y / textureSize.y;
+
+        m_BackgroundSprite.setScale(xScale, yScale);
     }
 
 }
@@ -137,12 +153,10 @@ void Engine::update(float dtAsSeconds){
 
 void Engine::draw(){
 
-
-   m_Window.clear(sf::Color(49, 81, 107));
+    m_Window.draw(m_BackgroundSprite);
 
 
    for (int i = 0; i < m_particles.size(); i++){
-
 
        m_Window.draw(m_particles[i]);
    }

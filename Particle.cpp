@@ -182,11 +182,11 @@ Particle::Particle(RenderTarget& target, int numPoints, Vector2i mouseClickPosit
 
 
    m_color1 = sf::Color(234, 176, 46);
-   m_color2 = sf::Color(54, 66, 101);
+   m_color2 = sf::Color(172, 103, 50);
   
 
 
-   double theta = (double)(rand)() / RAND_MAX * (M_PI / 2);
+   double theta = (double)(rand() / RAND_MAX * (M_PI / 2));
    double dtheta = 2 * M_PI / (numPoints - 1);
 
 
